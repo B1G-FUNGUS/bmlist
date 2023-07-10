@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				--tree-color: #000;
+				--font: 1.5em;
+			}
+			#top {
+				columns: 15em;
+			}
+			#top > div {
+				break-inside: avoid;
+				font-size: var(--font);;
+				max-width: 10em;
+				overflow-wrap: break-word;
+				margin: 0 1em 1em 0;
+			}
+			.inner {
+				text-indent: -0.5em;
+				padding-left: 0.5em;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					--tree-color: #FFF;
+					background: #000;
+					color: var(--tree-color);
+				}
+				a:link { 
+					color: #4575FF;
+					text-decoration: none;
+				}
+				a:visited {
+					color: #4040D5;
+					text-decoration: none;
+				}
+				a:hover {
+					color: #4575FF;
+					text-decoration: underline;
+				}
+				a:active {
+					color: #69F;
+					text-decoration: none;
+				}
+			}
+			.folder > .inner {
+				border-left: 1px solid var(--tree-color);
+				position: relative;
+				margin-left: 0.3em;
+			}
+			.folder > .inner:before {
+				width: 0.5em;
+				position: relative;
+				top: -0.3em;
+				content: "";
+				display: inline-block;
+				border-bottom: 1px solid var(--tree-color);
+			}
+			.folder > .inner:last-child {
+				border-left: none;
+			}
+			.folder > .inner:last-child:before {
+				height: 0.7em;
+				border-left: 1px solid var(--tree-color);
+			}
+			.folder > .inner:first-child {
+				margin-top: 0.2em;
+			}
+			.folder {
+				font-weight: bold;
+				:not(.folder) {
+					font-weight: normal;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="top"></div>
+		<script src="bmlist.js"></script>
+	</body>
+</html>
